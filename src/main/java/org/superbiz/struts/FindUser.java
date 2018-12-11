@@ -53,25 +53,6 @@ public class FindUser {
         this.id = id;
     }
 
-    private UserService userService;
-    public FindUser(UserService userService){
-        this.userService=userService;
-    }
 
-    public String execute() {
 
-        try {
-
-            Properties props = new Properties();
-            props.put(Context.INITIAL_CONTEXT_FACTORY,
-                "org.apache.openejb.core.LocalInitialContextFactory");
-
-            this.user = userService.find(id);
-        } catch (Exception e) {
-            this.errorMessage = e.getMessage();
-            return "failure";
-        }
-
-        return "success";
-    }
 }

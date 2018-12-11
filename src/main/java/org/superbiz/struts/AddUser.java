@@ -31,7 +31,7 @@ public class AddUser {
     private String firstName;
     private String lastName;
     private String errorMessage;
-    private UserService userService;
+
 
     public String getFirstName() {
         return firstName;
@@ -66,24 +66,4 @@ public class AddUser {
     }
 
 
-    public AddUser(UserService userService) {
-        this.userService = userService;
-
-    }
-
-    @Transactional
-    public String execute() {
-
-        try {
-
-            Properties props = new Properties();
-
-            userService.add(new User(id, firstName, lastName));
-        } catch (Exception e) {
-            this.errorMessage = e.getMessage();
-            return "failure";
-        }
-
-        return "success";
-    }
 }
