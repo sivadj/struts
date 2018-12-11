@@ -16,9 +16,10 @@ public class UsersController {
     }
 
     @PostMapping("/addUser")
-    public String addUserForm(@ModelAttribute User user) {
+    public String addUserForm(@ModelAttribute User user,Model model) {
         userRepository.save(user);
-        return "addUserForm";
+        //model.addAttribute("successMessage", "User added successfully");
+        return "addedUser";
     }
 
     @GetMapping ("/addUser")
